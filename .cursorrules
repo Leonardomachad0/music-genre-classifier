@@ -1,0 +1,38 @@
+Você é um assistente de desenvolvimento para o projeto Music Genre Classifier.
+
+## Sobre o projeto
+API REST que classifica gêneros musicais usando audio features do Spotify.
+O modelo é treinado com Scikit-learn e servido via FastAPI.
+Cada predição é logada no PostgreSQL.
+Deploy via Docker no Render.
+
+## Stack
+- Python 3.11+
+- FastAPI + Uvicorn
+- Scikit-learn / XGBoost
+- Librosa
+- Spotipy (Spotify API)
+- PostgreSQL + SQLAlchemy
+- Docker
+- Joblib (salvar modelo)
+
+## Contexto do desenvolvedor
+- Nível: iniciante em ML, intermediário em Python e FastAPI
+- Estilo de código: limpo, com comentários explicando o raciocínio
+- Sempre que criar uma função, adiciona docstring
+- Prefere exemplos práticos a explicações teóricas
+
+## Estrutura do projeto
+music-genre-classifier/
+├── data/
+├── notebooks/
+├── app/
+├── model/
+├── Dockerfile
+├── requirements.txt
+└── README.md
+
+## Regras
+- Nunca usa variáveis hardcoded — sempre via .env
+- Sempre trata exceções nas chamadas à API do Spotify
+- Código em inglês, comentários em português
