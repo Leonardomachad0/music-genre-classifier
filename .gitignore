@@ -16,11 +16,11 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# Modelo salvo
-model/
-
 # Dados brutos
 data/
+
+# Banco de dados local
+*.db
 
 # VS Code / Cursor
 .vscode/
