@@ -1,0 +1,34 @@
+# Ambiente virtual
+venv/
+env/
+.venv/
+
+# Variáveis de ambiente
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Modelo salvo
+model/
+
+# Dados brutos
+data/
+
+# VS Code / Cursor
+.vscode/
+.cursor/
+
+# Docker
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
