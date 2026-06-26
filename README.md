@@ -1,12 +1,15 @@
 # Music Genre Classifier 🎵
 
+![Demo](demo.png)
+
 API REST que classifica o gênero musical de arquivos de áudio usando Machine Learning.
 
 > ⚠️ **Cold start:** a primeira requisição após período de inatividade pode levar ~50s (limitação do plano gratuito do Render).
 
 ## Demo
 
-API em produção: https://music-genre-classifier-os8j.onrender.com/docs
+- **Interface visual (Streamlit):** rode localmente com o passo a passo abaixo
+- **API direta (Swagger):** https://music-genre-classifier-os8j.onrender.com/docs
 
 ## Como funciona
 
@@ -34,7 +37,7 @@ Features clássicas + XGBoost atingem 73.5% no GTZAN. A evolução natural seria
 
 ## Stack
 
-Python · FastAPI · XGBoost · Librosa · SQLAlchemy · Docker · Render
+Python · FastAPI · XGBoost · Librosa · SQLAlchemy · Docker · Render · Streamlit
 
 ## Decisões de arquitetura
 
@@ -57,3 +60,11 @@ uvicorn app.main:app --reload
 ```
 
 Acesse http://localhost:8000/docs
+
+Para a interface visual, em outro terminal (com o venv ativo):
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Acesse http://localhost:8501
