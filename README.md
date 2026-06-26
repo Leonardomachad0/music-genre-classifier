@@ -2,6 +2,8 @@
 
 API REST que classifica o gênero musical de arquivos de áudio usando Machine Learning.
 
+> ⚠️ **Cold start:** a primeira requisição após período de inatividade pode levar ~50s (limitação do plano gratuito do Render).
+
 ## Demo
 
 API em produção: https://music-genre-classifier-os8j.onrender.com/docs
@@ -22,10 +24,12 @@ O modelo foi treinado com o dataset GTZAN (1000 músicas, 10 gêneros). Para cad
 
 O modelo acerta bem gêneros com características acústicas distintas (classical: F1 0.95, metal: F1 0.89). Os maiores erros ocorrem em gêneros com sobreposição histórica — rock confunde com blues e country (F1 0.47), disco confunde com hiphop e pop (F1 0.52). Esses erros são musicalmente esperados.
 
+Features clássicas + XGBoost atingem 73.5% no GTZAN. A evolução natural seria um CNN sobre espectrogramas, que alcança 90%+ no mesmo dataset — priorizei aqui um pipeline end-to-end em produção com paridade de features garantida.
+
 ## Endpoints
 
-- `POST /predict` — recebe arquivo `.wav`, retorna gênero e confiança
-- `GET /predictions` — histórico de predições
+- `POST /predict` — recebe arquivo de áudio (`.wav`, `.mp3`, `.ogg`, `.flac`), retorna gênero e confiança
+- `GET /predictions` — histórico das últimas predições
 - `GET /health` — status da API e do modelo
 
 ## Stack
@@ -41,7 +45,13 @@ Python · FastAPI · XGBoost · Librosa · SQLAlchemy · Docker · Render
 ```bash
 git clone https://github.com/Leonardomachad0/music-genre-classifier
 cd music-genre-classifier
+
+# Windows
 python -m venv venv && venv\Scripts\activate
+
+# Mac/Linux
+python -m venv venv && source venv/bin/activate
+
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```

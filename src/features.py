@@ -78,12 +78,16 @@ def extract_features(audio_path: str) -> np.ndarray:
         *mfcc_features
     ])
 
-    # Trava de paridade — garante que o vetor tem exatamente 57 features
-    assert len(features) == len(get_feature_names()), \
-        f"Esperado {len(get_feature_names())} features, obtido {len(features)}"
+# Trava de paridade — garante que o vetor tem exatamente 57 features.
+    # Usa raise em vez de assert porque assert é removido quando o Python
+    # roda em modo otimizado (-O), e essa garantia não pode sumir.
+    expected = len(get_feature_names())
+    if len(features) != expected:
+        raise ValueError(
+            f"Número de features incorreto: esperado {expected}, obtido {len(features)}"
+        )
 
-    return features
-
+    return features   
 
 def get_feature_names() -> list:
     """

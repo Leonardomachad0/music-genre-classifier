@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.routes import router
 from app.database import create_tables
@@ -17,6 +18,14 @@ app = FastAPI(
     description="API que classifica gênero musical a partir de arquivos de áudio",
     version="1.0.0",
     lifespan=lifespan
+)
+
+# libera requests de outras origens (necessário para o front consumir a API)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(router)
