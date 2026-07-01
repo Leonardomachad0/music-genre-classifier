@@ -8,7 +8,7 @@ API REST que classifica o gênero musical de arquivos de áudio usando Machine L
 
 ## Demo
 
-- **Interface visual (Streamlit):** rode localmente com o passo a passo abaixo
+- **Interface visual (Streamlit):** https://music-genre-classifier-3fqqelbryzjx76wnmoi6yp.streamlit.app
 - **API direta (Swagger):** https://music-genre-classifier-os8j.onrender.com/docs
 
 ## Como funciona
